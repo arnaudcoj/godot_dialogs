@@ -20,6 +20,16 @@ tracks/0/path = NodePath("skin:transform/scale")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = { "times":FloatArray( 0, 0.6 ), "transitions":FloatArray( -2.46229, -2.92817 ), "update":0, "values":[ Vector2( 1, 1 ), Vector2( 1.05, 1.05 ) ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("skin:polygon")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ Vector2Array( -7.07528, -0.492973, -3.1308, -19.742, 3.33815, -19.8998, 8.2293, -0.335197, 9.64931, -20.2154, 14.6982, -19.5843, 6.02039, -49.8779, 12.5964, -31.9933, 11.3849, -51.7712, 3.02259, -52.7179, 3.02259, -54.9268, 8.86042, -61.0802, 8.38708, -68.6536, 0.0247879, -74.0181, -8.17973, -68.8114, -8.49529, -61.7113, -2.18413, -55.2424, -2.3419, -52.5601, -11.1775, -51.7712, -12.4653, -31.9933, -6.1286, -50.0356, -14.3331, -19.4265, -9.75752, -19.8998 ) ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("shadow:polygon")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ Vector2Array( -9.63177, -4.36631, -11.7804, -0.448274, -7.98873, 2.07949, 11.7278, 1.82671, 13.6237, -0.953828, 11.4751, -4.61909 ) ] }
 
 [sub_resource type="Animation" id=3]
 
