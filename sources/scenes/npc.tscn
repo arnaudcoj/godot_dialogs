@@ -1,15 +1,15 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://scripts/npc.gd" type="Script" id=1]
 [ext_resource path="res://scripts/speech.gd" type="Script" id=2]
 [ext_resource path="res://assets/munro/MunroSmall.ttf" type="DynamicFontData" id=3]
 
-[sub_resource type="ConvexPolygonShape2D" id=1]
+[sub_resource type="ConvexPolygonShape2D" id=6]
 
 custom_solver_bias = 0.0
 points = Vector2Array( 9.47671, 10.4725, 49.0266, 9.77666, 49.2586, 25.3183, 9.01278, 24.9703 )
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=7]
 
 resource/name = "idle"
 length = 1.5
@@ -21,7 +21,7 @@ tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = { "times":FloatArray( 0, 0.6 ), "transitions":FloatArray( -2.46229, -2.92817 ), "update":0, "values":[ Vector2( 1, 1 ), Vector2( 1.05, 1.05 ) ] }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=8]
 
 length = 0.7
 loop = true
@@ -37,17 +37,23 @@ tracks/1/interp = 1
 tracks/1/imported = false
 tracks/1/keys = { "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1, 1 ), "update":1, "values":[ Vector2Array( -9.63177, -4.36631, -11.7804, -0.448274, -7.98873, 2.07949, 11.7278, 1.82671, 13.6237, -0.953828, 11.4751, -4.61909 ), Vector2Array( -7.31476, -6.79757, -9.482, -3.37561, -5.14752, 0.502612, 8.08407, 4.15271, 9.79505, 0.730743, 4.20584, -5.20066 ), Vector2Array( -6.74443, -9.87734, -8.22728, -4.28813, -1.2693, 1.30107, 7.51374, 1.5292, 9.22472, -3.14748, 2.72299, -7.0257 ), Vector2Array( -6.74443, -6.45537, -6.74443, -3.26154, -0.69897, 1.18701, 8.54033, 5.29336, 7.39968, -1.0943, 0.89795, -4.97253 ), Vector2Array( -6.63037, -5.65692, -9.02574, -2.34902, -6.40224, 0.844808, 8.65439, 0.958873, 10.7076, -1.66463, 9.45285, -4.63033 ), Vector2Array( -6.06004, -5.65692, -8.79761, -0.295844, -6.40224, 1.8714, 6.03089, -0.523975, 8.08407, -3.37561, 8.42626, -8.05229 ), Vector2Array( -4.23499, -7.13977, -9.93826, -0.295844, -6.40224, 3.92457, 5.46056, -1.89276, 8.88252, -6.6835, 7.28561, -11.2461 ), Vector2Array( -8.45541, -4.06, -9.8242, -0.63804, -6.74443, 1.07294, 10.4794, 0.730743, 11.7342, -1.55056, 9.45285, -4.4022 ) ] }
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=9]
 
 font/size = 16
 font/use_mipmaps = false
 font/use_filter = false
 font/font = ExtResource( 3 )
 
+[sub_resource type="CapsuleShape2D" id=5]
+
+custom_solver_bias = 0.0
+radius = 22.0461
+height = 20.0
+
 [node name="npc" type="KinematicBody2D"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 1 )
+shapes/0/shape = SubResource( 6 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, -28.0309, -24.5271 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -61,8 +67,8 @@ walking_speed = 3
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/idle = SubResource( 2 )
-anims/walking = SubResource( 3 )
+anims/idle = SubResource( 7 )
+anims/walking = SubResource( 8 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -137,9 +143,30 @@ margin/left = -92.0
 margin/top = -138.0
 margin/right = 11.0
 margin/bottom = -96.0
-custom_fonts/mono_font = SubResource( 4 )
+custom_fonts/mono_font = SubResource( 9 )
 bbcode/enabled = true
-bbcode/bbcode = "blablablalbalbbalb,al blalbj ljbaljblajb ljbljajioj ijbiojaioj iojafiojafojiobjdojbiafobjoafibiojafojbajbifojbiofjb"
+bbcode/bbcode = "NPC"
 visible_characters = -1
+
+[node name="interaction_area" type="Area2D" parent="."]
+
+input/pickable = true
+shapes/0/shape = SubResource( 5 )
+shapes/0/transform = Matrix32( -4.37114e-08, -1, 1, -4.37114e-08, 0.385536, -6.29708 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision/layers = 2
+collision/mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interaction_area"]
+
+transform/pos = Vector2( 0.385536, -6.29708 )
+transform/rot = 90.0
+shape = SubResource( 5 )
+trigger = false
+_update_shape_index = 0
 
 

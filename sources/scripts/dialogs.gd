@@ -9,7 +9,8 @@ var dialog_change_state_gd = preload("res://scripts/dialog_change_state.gd")
 var dialogs = {
 	level1 = {
 		player = create_change_state_dialog([["player", states_enum.INTERACT_STATE], ["npc1", states_enum.INTERACT_STATE]], create_dialog("hey !", "player", create_dialog("oh !", "player", create_change_state_dialog([["player", states_enum.IDLE_STATE], ["npc1", states_enum.IDLE_STATE]])))),
-		npc1 = create_change_state_dialog([["player", states_enum.INTERACT_STATE], ["npc1", states_enum.INTERACT_STATE]], create_dialog("derp i'ma npc", "npc1", create_dialog("i know", "player", create_change_state_dialog([["player", states_enum.IDLE_STATE], ["npc1", states_enum.IDLE_STATE]]))))
+		npc1 = create_change_state_dialog([["player", states_enum.INTERACT_STATE], ["npc1", states_enum.INTERACT_STATE]], create_dialog("derp i'ma npc", "npc1", create_dialog("i know", "player", create_change_state_dialog([["player", states_enum.IDLE_STATE], ["npc1", states_enum.IDLE_STATE]])))),
+		npc2 = create_change_state_dialog([["player", states_enum.INTERACT_STATE], ["npc1", states_enum.INTERACT_STATE], ["npc2", states_enum.INTERACT_STATE]], create_dialog("derp i'ma npc", "npc2", create_dialog("ehhh", "player", create_dialog("WHAT DID YOU SAY ??", "npc1", create_dialog("I AM THE FIRST CLASS NPC", "npc2", create_dialog("please shut up...", "player",create_change_state_dialog([["player", states_enum.IDLE_STATE], ["npc1", states_enum.IDLE_STATE], ["npc2", states_enum.INTERACT_STATE]])))))))
 	}
 }
 

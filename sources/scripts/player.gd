@@ -53,7 +53,9 @@ func get_moving_direction():
 	return direction.normalized()
 
 func interact():
-	emit_signal("interact")
+	var interactions = get_node("interaction_area").get_overlapping_areas()
+	if interactions.size() > 0 :
+		emit_signal("interact", interactions[0].get_parent().get_name())
 
 #STATES
 

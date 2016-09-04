@@ -56,4 +56,8 @@ transform/pos = Vector2( 452, 552 )
 
 transform/pos = Vector2( 632, 512 )
 
+[node name="npc2" parent="entities" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 452, 372 )
+
 
