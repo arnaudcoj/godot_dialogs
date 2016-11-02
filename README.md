@@ -1,5 +1,5 @@
 # godot_yesno
-YesNo - Godot "Game"
+YesNo - Godot text system experimentation
 
 This is a modest experiment about making a dialog tree system for games. I am using the Godot Engine.
 
