@@ -36,6 +36,8 @@ func change_state(state_enum):
 		state = WalkingState.new(self)
 	elif state_enum == states_enum.INTERACT_STATE:
 		state = InteractState.new(self)
+	elif state_enum == states_enum.TALKING_STATE:
+		state = TalkingState.new(self)
 
 func is_move_action_pressed():
 	return Input.is_action_pressed("ui_up") or  Input.is_action_pressed("ui_down") or  Input.is_action_pressed("ui_left") or  Input.is_action_pressed("ui_right")
@@ -59,7 +61,8 @@ class IdleState:
 	
 	func _init(player):
 		self.player = player
-		player.get_node("animation").play("idle")
+		if player.get_node("animation").get_current_animation() != "idle":
+			player.get_node("animation").play("idle")
 		print("idle")
 		
 	func process(delta):
@@ -91,14 +94,33 @@ class WalkingState:
 	
 	func exit():
 		pass
-		
+
 class InteractState:
 	var player
 	
 	func _init(player):
 		self.player = player
-		player.get_node("animation").play("idle")
+		if player.get_node("animation").get_current_animation() != "idle":
+			player.get_node("animation").play("idle")
 		print("interact")
+		
+	func process(delta):
+		pass
+	
+	func input(event):
+		pass
+	
+	func exit():
+		player.speech.deactivate()
+		
+class TalkingState:
+	var player
+	
+	func _init(player):
+		self.player = player
+		if player.get_node("animation").get_current_animation() != "talking":
+			player.get_node("animation").play("talking")
+		print("talking")
 		
 	func process(delta):
 		pass

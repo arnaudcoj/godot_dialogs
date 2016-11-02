@@ -1,0 +1,13 @@
+{
+  "level_or_chapter":{
+    "triggering_interaction":[
+      [["all elements in this line will be played simultaneously/// character_talking","sentence","new_state_or_null"],["next_character_talking","next_sentence","new_state_or_null"]],
+      [["then all elements in this line will be played AFTER the previous one /// character_talking","sentence","new_state_or_null"]]
+    ]
+  },
+  "level1":{
+    "npc1":[
+      [["npc1","hi!","interact"]]
+    ]
+  }
+}
